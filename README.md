@@ -1,2 +1,2 @@
 # TDD
-A practice repository for TDD
+A practice repository for TDD.
