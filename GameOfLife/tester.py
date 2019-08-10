@@ -2,6 +2,9 @@
 
 import unittest
 
+class Cell():
+    x = 0
+
 class TestStringMethods(unittest.TestCase):
     
     cell = Cell()
