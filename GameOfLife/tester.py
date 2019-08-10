@@ -1,10 +1,11 @@
 #!/bin/python3.7
+
 import unittest
 
-def test_cell_is_alive():
-    cell = Cell()
-    cell.isAlive = true
-    assertEquals(cell_A.isAlive, true)
+class TestStringMethods(unittest.TestCase):
 
-unittest.main()
+    def test_upper(self):
+        self.assertEqual(, 'FOO')
 
+if __name__ == '__main__':
+    unittest.main()
