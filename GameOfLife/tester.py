@@ -3,7 +3,10 @@
 import unittest
 
 class Cell():
-    x = 0
+    isAlive = 0
+
+    def CheckAlive(this):
+        return this.isAlive
 
 class TestStringMethods(unittest.TestCase):
     
