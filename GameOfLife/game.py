@@ -1,0 +1,2 @@
+def CheckAlive(cell):
+
