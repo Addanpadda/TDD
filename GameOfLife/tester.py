@@ -1,7 +1,7 @@
 #!/bin/python3.7
 import unittest
 
-cell_A = Cell()
-cell_A.isAlive = true
-
-assertEquals(cell_A.isAlive, true)
+def test_cell_is_alive():
+    cell = Cell()
+    cell.isAlive = true
+    assertEquals(cell_A.isAlive, true)
