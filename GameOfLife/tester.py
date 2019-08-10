@@ -5,8 +5,8 @@ import unittest
 class Cell():
     isAlive = 0
 
-    def CheckAlive(this):
-        return this.isAlive
+    def CheckAlive(self):
+        return True
 
 class TestStringMethods(unittest.TestCase):
     
