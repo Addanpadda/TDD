@@ -17,6 +17,19 @@ class Universe():
         self._dimentions = [dimention_x, dimention_y]
         self.space = self.CreateUniverse(dimention_x, dimention_y)
 
+    def CellShouldBeAlive(self, x, y):
+        neighbours = self.Neighbours(x, y)
+        alive = self.space[x][y].CheckAlive()
+        
+        if alive:
+            if neighbours is 2 or neighbours is 3:  # Rule 2
+                return True
+        else:
+            if neighbours is 3:  # Rule 4
+                return True
+
+        return False   # Rule 1 & 3 and other situations
+
     def CreateUniverse(self, x_dimention, y_dimention):
         cells = []
         
