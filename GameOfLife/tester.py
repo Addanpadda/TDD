@@ -7,13 +7,17 @@ class Tests(unittest.TestCase):
         universe = Universe(3, 3)
 
         universe.space[1][1].Alive(True)
-        self.assertEqual(universe.CellShouldBeAlive(1, 1), False)
+        self.assertFalse(universe.CellShouldBeAlive(1, 1))
 
     def test_Universe_Cell_Should_Be_Alive_rule_2(self):
         universe = Universe(3, 3)
+        
         universe.space[0][1].Alive(True)
         universe.space[2][1].Alive(True)
-        self.assertEqual(universe.CellShouldBeAlive(1, 1), True)
+        self.assertFalse(universe.CellShouldBeAlive(1, 1))
+        
+        universe.space[1][1].Alive(True)
+        self.assertTrue(universe.CellShouldBeAlive(1, 1))
 
     def test_Universe_Cell_Should_Be_Alive_rule_3(self):
         universe = Universe(3, 3)
@@ -22,9 +26,8 @@ class Tests(unittest.TestCase):
         universe.space[0][1].Alive(True)
         universe.space[2][1].Alive(True)
         universe.space[1][2].Alive(True)
-
         universe.space[1][1].Alive(True)
-        self.assertEqual(universe.CellShouldBeAlive(1, 1), False)
+        self.assertFalse(universe.CellShouldBeAlive(1, 1))
 
     def test_Universe_Cell_Should_Be_Alive_rule_4(self):
         universe = Universe(3, 3)
@@ -32,9 +35,9 @@ class Tests(unittest.TestCase):
         universe.space[1][0].Alive(True)
         universe.space[0][1].Alive(True)
         universe.space[2][1].Alive(True)
-        
-        self.assertEqual(universe.CellShouldBeAlive(1, 1), True)
+        self.assertTrue(universe.CellShouldBeAlive(1, 1))
 
+    
     def test_Cell_CheckAlive_True(self):
         cell = Cell()
         cell.Alive(True)
@@ -86,6 +89,20 @@ class Tests(unittest.TestCase):
         self.assertEqual(universe.Neighbours(0, 0), 1)
         universe.space[1][0].Alive(True)
         self.assertEqual(universe.Neighbours(0, 0), 2)
+
+    def test_Universe_Import(self):
+        universe = Universe(3, 4)
+        world = [
+            [1, 0, 0],
+            [0, 1, 0],
+            [1, 1, 1],
+            [0, 0, 0]
+        ]
+        universe.Import(world)
+
+        for x in range(3):
+            for y in range(3):
+                self.assertEqual(universe.space[x][y].CheckAlive(), world[x][y]) 
 
 
 if __name__ == '__main__':
